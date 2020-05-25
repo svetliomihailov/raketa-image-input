@@ -4,8 +4,8 @@ import { RaketaUIProvider } from 'raketa-ui'
 import {
   ImagePicker,
   MediaManagerContext
-} from '@raketa-cms/raketa-image-input'
-import '@raketa-cms/raketa-image-input/dist/index.css'
+} from '@raketa-cms/raketa-image-picker'
+import '@raketa-cms/raketa-image-picker/dist/index.css'
 import IMAGES from './IMAGES'
 
 class FakeMediaManager {

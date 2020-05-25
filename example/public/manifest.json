@@ -1,6 +1,6 @@
 {
-  "short_name": "@raketa-cms/raketa-image-input",
-  "name": "@raketa-cms/raketa-image-input",
+  "short_name": "@raketa-cms/raketa-image-picker",
+  "name": "@raketa-cms/raketa-image-picker",
   "icons": [
     {
       "src": "favicon.ico",

@@ -1,13 +1,13 @@
 {
-  "name": "@raketa-cms/raketa-image-input-example",
-  "homepage": "https://studioraketa.github.io/@raketa-cms/raketa-image-input",
+  "name": "@raketa-cms/raketa-image-picker-example",
+  "homepage": "https://studioraketa.github.io/@raketa-cms/raketa-image-picker",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
     "react-scripts": "link:../node_modules/react-scripts",
-    "@raketa-cms/raketa-image-input": "link:.."
+    "@raketa-cms/raketa-image-picker": "link:.."
   },
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",

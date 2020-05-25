@@ -1,10 +1,10 @@
 {
-  "name": "@raketa-cms/raketa-image-input",
-  "version": "1.0.0",
+  "name": "@raketa-cms/raketa-image-picker",
+  "version": "1.1.0-pre",
   "description": "Image browser and upload client for APIs compatible with the Raketa Image JSON format.",
   "author": "studioraketa",
   "license": "MIT",
-  "repository": "studioraketa/raketa-image-input",
+  "repository": "studioraketa/raketa-image-picker",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
