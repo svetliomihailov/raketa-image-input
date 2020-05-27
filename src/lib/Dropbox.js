@@ -22,39 +22,30 @@ const DropzoneLabel = styled.div`
   padding: 16px;
 `
 
-class Dropbox extends React.Component {
-  constructor(props) {
-    super(props)
+const Dropbox = ({ buttonLabel, onDrop }) => {
+  const dropzoneRef = React.createRef()
 
-    this.onOpenClick = this.onOpenClick.bind(this)
-  }
+  const handleOpen = () => dropzoneRef.current.open()
 
-  onOpenClick() {
-    this.dropzone.open()
-  }
-
-  render() {
-    return (
-      <div>
-        <StyledDropzone>
-          <Dropzone
-            ref={(dropzone) => (this.dropzone = dropzone)}
-            onDrop={this.props.onDrop}
-            style={{}}
-          >
-            <DropzoneLabel>
+  return (
+    <div>
+      <StyledDropzone>
+        <Dropzone ref={dropzoneRef} onDrop={onDrop}>
+          {({ getRootProps, getInputProps }) => (
+            <DropzoneLabel {...getRootProps()}>
               <Title third>Select files from your computer</Title>
               <small>or drag and drop here</small>
+              <input {...getInputProps()} />
             </DropzoneLabel>
-          </Dropzone>
-        </StyledDropzone>
+          )}
+        </Dropzone>
+      </StyledDropzone>
 
-        <Button type='button' success onClick={this.onOpenClick}>
-          {this.props.buttonLabel}
-        </Button>
-      </div>
-    )
-  }
+      <Button type='button' success onClick={handleOpen}>
+        {buttonLabel}
+      </Button>
+    </div>
+  )
 }
 
 Dropbox.defaultProps = { buttonLabel: 'Select files...' }
