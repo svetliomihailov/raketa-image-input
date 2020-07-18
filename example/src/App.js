@@ -1,11 +1,11 @@
 import React from 'react'
-import { RaketaUIProvider } from 'raketa-ui'
+import { ThemeProvider } from 'styled-components'
+import { theme } from '@raketa-cms/raketa-mir'
 
 import {
   ImagePicker,
   MediaManagerContext
 } from '@raketa-cms/raketa-image-picker'
-import '@raketa-cms/raketa-image-picker/dist/index.css'
 import IMAGES from './IMAGES'
 
 class FakeMediaManager {
@@ -18,11 +18,11 @@ const mediaManager = new FakeMediaManager('/')
 
 const App = () => {
   return (
-    <RaketaUIProvider>
+    <ThemeProvider theme={theme}>
       <MediaManagerContext.Provider value={mediaManager}>
         <ImagePicker />
       </MediaManagerContext.Provider>
-    </RaketaUIProvider>
+    </ThemeProvider>
   )
 }
 

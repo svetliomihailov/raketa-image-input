@@ -1,5 +1,6 @@
 import React from 'react'
-import { RaketaUIProvider } from 'raketa-ui'
+import { ThemeProvider } from 'styled-components'
+import { theme } from '@raketa-cms/raketa-mir'
 
 import ImagePicker from './ImagePicker'
 
@@ -23,21 +24,19 @@ class ImageInput extends React.Component {
     const { selectedImage } = this.state
 
     return (
-      <RaketaUIProvider>
-        <div>
-          <ImagePicker
-            mediaManager={mediaManager}
-            value={selectedImage}
-            onChange={(selectedImage) => this.handleChange(selectedImage)}
-          />
+      <ThemeProvider theme={theme}>
+        <ImagePicker
+          mediaManager={mediaManager}
+          value={selectedImage}
+          onChange={(selectedImage) => this.handleChange(selectedImage)}
+        />
 
-          <input
-            type='hidden'
-            name={name}
-            value={selectedImage ? selectedImage.id : ''}
-          />
-        </div>
-      </RaketaUIProvider>
+        <input
+          type='hidden'
+          name={name}
+          value={selectedImage ? selectedImage.id : ''}
+        />
+      </ThemeProvider>
     )
   }
 }

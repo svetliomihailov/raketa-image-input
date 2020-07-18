@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { reset, resetButton } from 'raketa-ui'
+import { reset, buttonReset } from '@raketa-cms/raketa-mir'
 
 import Img from '../../lib/Image'
 import TextInput from '../../forms/TextInput'
@@ -24,10 +24,8 @@ const ImageList = styled.div`
 const Thumb = styled.div`
   position: relative;
   cursor: pointer;
-  width: 116px;
-  height: 116px;
   border: 8px solid
-    ${(props) => (props.selected ? props.theme.successColor : 'transparent')};
+    ${(props) => (props.selected ? props.theme.colors.success : 'transparent')};
 
   button {
     display: none;
@@ -41,21 +39,22 @@ const Thumb = styled.div`
 `
 
 const ImageWrapper = styled.div`
+  width: 100px;
+  height: 100px;
+
   & > img {
-    object-fit: contain;
-    width: 100px;
-    height: 100px;
+    width: 100%;
     background-color: #ddd;
   }
 `
 
 const EditButton = styled.button`
-  ${reset()}
-  ${resetButton()}
+  ${reset}
+  ${buttonReset}
   position: absolute;
   bottom: 8px;
   left: 12px;
-  background-color: ${(props) => props.theme.successColor};
+  background-color: ${(props) => props.theme.colors.success};
   font-size: 0.85em;
   color: #fff;
   width: 32px;
@@ -64,12 +63,12 @@ const EditButton = styled.button`
 `
 
 const DeleteButton = styled.button`
-  ${reset()}
-  ${resetButton()}
+  ${reset}
+  ${buttonReset}
   position: absolute;
   bottom: 8px;
   right: 12px;
-  background-color: ${(props) => props.theme.dangerColor};
+  background-color: ${(props) => props.theme.colors.danger};
   font-size: 1em;
   color: #fff;
   width: 32px;
@@ -94,6 +93,7 @@ const ImageItem = ({
     <ImageWrapper title={image.name}>
       <Img src={image} variant='thumb' />
     </ImageWrapper>
+
     <EditButton
       type='button'
       onClick={(e) => {
@@ -104,6 +104,7 @@ const ImageItem = ({
     >
       <IconEdit />
     </EditButton>
+
     <DeleteButton
       type='button'
       onClick={(e) => {
@@ -136,7 +137,7 @@ class BrowseTab extends React.Component {
     const { selectedImage } = this.state
 
     return (
-      <div>
+      <React.Fragment>
         <TextInput
           label='Search images'
           value={q}
@@ -158,7 +159,7 @@ class BrowseTab extends React.Component {
             />
           ))}
         </ImageList>
-      </div>
+      </React.Fragment>
     )
   }
 }

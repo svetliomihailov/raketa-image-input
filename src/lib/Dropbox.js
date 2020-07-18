@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Title, Button } from 'raketa-ui'
+import { H, Button } from '@raketa-cms/raketa-mir'
 
 import Dropzone from 'react-dropzone'
 
@@ -28,12 +28,12 @@ const Dropbox = ({ buttonLabel, onDrop }) => {
   const handleOpen = () => dropzoneRef.current.open()
 
   return (
-    <div>
+    <React.Fragment>
       <StyledDropzone>
         <Dropzone ref={dropzoneRef} onDrop={onDrop}>
           {({ getRootProps, getInputProps }) => (
             <DropzoneLabel {...getRootProps()}>
-              <Title third>Select files from your computer</Title>
+              <H size='large'>Select files from your computer</H>
               <small>or drag and drop here</small>
               <input {...getInputProps()} />
             </DropzoneLabel>
@@ -41,10 +41,15 @@ const Dropbox = ({ buttonLabel, onDrop }) => {
         </Dropzone>
       </StyledDropzone>
 
-      <Button type='button' success onClick={handleOpen}>
+      <Button
+        type='button'
+        variant='success'
+        onClick={handleOpen}
+        style={{ marginBottom: '1em' }}
+      >
         {buttonLabel}
       </Button>
-    </div>
+    </React.Fragment>
   )
 }
 

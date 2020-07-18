@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -7,7 +8,7 @@ import Dialog from '../../dialogs/Dialog'
 import BrowseTab from './BrowseTab'
 import UploadTab from './UploadTab'
 
-import { FormControl, Label, Button, Tabs } from 'raketa-ui'
+import { FormGroup, Label, Button, Tabs } from '@raketa-cms/raketa-mir'
 
 import { removeById } from '../../lists'
 import MediaManagerContext from '../../MediaManagerContext'
@@ -194,50 +195,59 @@ class ImagePicker extends React.Component {
             </ImageWrapper>
           )}
 
-          <FormControl>
+          <FormGroup>
             <Label>{`${label} ${
               selectedImage.alt ? `(${selectedImage.alt})` : ''
             }`}</Label>
-            <Button type='button' onClick={() => this.handleOpenPicker()}>
+            <Button
+              type='button'
+              variant='secondary'
+              onClick={() => this.handleOpenPicker()}
+            >
               Browse...
             </Button>
-            <Button type='button' onClick={() => this.handleClearImage()}>
+            <Button
+              type='button'
+              variant='secondary'
+              onClick={() => this.handleClearImage()}
+            >
               Clear
             </Button>
-          </FormControl>
+          </FormGroup>
         </ImageControl>
 
-        <Dialog
-          open={pickerOpen}
-          onClose={() => this.setState({ pickerOpen: false })}
-          title='Image Browser'
-          primaryLabel='Select'
-          dialogSize='large'
-          onPrimary={() => this.handleSelectImage()}
-        >
-          <Tabs>
-            <div title='Browse'>
-              <BrowseTab
-                images={images}
-                selectedImage={selectedImage}
-                q={q}
-                onSearch={(q) => this.handleSearch(q)}
-                onSelect={(image) => this.setState({ selectedImage: image })}
-                onFastSelect={(image) => this.handleFastSelect(image)}
-                onDelete={(image) => this.handleDeleteImage(image)}
-                onEdit={(image) => this.handleEditImage(image)}
-              />
-            </div>
-            <div title='Upload'>
-              <UploadTab
-                filesToUpload={filesToUpload}
-                filesUploaded={filesUploaded}
-                files={files}
-                onUpload={(filesOnUpload) => this.handleUpload(filesOnUpload)}
-              />
-            </div>
-          </Tabs>
-        </Dialog>
+        {pickerOpen && (
+          <Dialog
+            open={pickerOpen}
+            onClose={() => this.setState({ pickerOpen: false })}
+            title='Image Browser'
+            primaryLabel='Select'
+            onPrimary={() => this.handleSelectImage()}
+          >
+            <Tabs>
+              <div title='Browse'>
+                <BrowseTab
+                  images={images}
+                  selectedImage={selectedImage}
+                  q={q}
+                  onSearch={(q) => this.handleSearch(q)}
+                  onSelect={(image) => this.setState({ selectedImage: image })}
+                  onFastSelect={(image) => this.handleFastSelect(image)}
+                  onDelete={(image) => this.handleDeleteImage(image)}
+                  onEdit={(image) => this.handleEditImage(image)}
+                />
+              </div>
+              <div title='Upload'>
+                <UploadTab
+                  filesToUpload={filesToUpload}
+                  filesUploaded={filesUploaded}
+                  files={files}
+                  onUpload={(filesOnUpload) => this.handleUpload(filesOnUpload)}
+                />
+              </div>
+            </Tabs>
+          </Dialog>
+        )}
       </div>
     )
   }
