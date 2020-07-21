@@ -14,6 +14,7 @@ const IconEdit = () => (
 )
 
 const ImageList = styled.div`
+  ${reset};
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -22,8 +23,11 @@ const ImageList = styled.div`
 `
 
 const Thumb = styled.div`
+  ${reset};
   position: relative;
   cursor: pointer;
+  width: 116px;
+  height: 116px;
   border: 8px solid
     ${(props) => (props.selected ? props.theme.colors.success : 'transparent')};
 
@@ -39,12 +43,13 @@ const Thumb = styled.div`
 `
 
 const ImageWrapper = styled.div`
+  ${reset};
   width: 100px;
   height: 100px;
+  background-color: ${(props) => props.theme.colors.lighterGray};
 
   & > img {
     width: 100%;
-    background-color: #ddd;
   }
 `
 
