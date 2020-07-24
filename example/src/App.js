@@ -4,6 +4,7 @@ import { theme } from '@raketa-cms/raketa-mir'
 
 import {
   ImagePicker,
+  ImageInput,
   MediaManagerContext
 } from '@raketa-cms/raketa-image-picker'
 import IMAGES from './IMAGES'
@@ -18,11 +19,13 @@ const mediaManager = new FakeMediaManager('/')
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <MediaManagerContext.Provider value={mediaManager}>
+    <MediaManagerContext.Provider value={mediaManager}>
+      <ThemeProvider theme={theme}>
         <ImagePicker />
-      </MediaManagerContext.Provider>
-    </ThemeProvider>
+      </ThemeProvider>
+
+      <ImageInput mediaManager={mediaManager} />
+    </MediaManagerContext.Provider>
   )
 }
 

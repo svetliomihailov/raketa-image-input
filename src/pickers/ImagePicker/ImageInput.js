@@ -25,17 +25,19 @@ class ImageInput extends React.Component {
 
     return (
       <ThemeProvider theme={theme}>
-        <ImagePicker
-          mediaManager={mediaManager}
-          value={selectedImage}
-          onChange={(selectedImage) => this.handleChange(selectedImage)}
-        />
+        <div>
+          <ImagePicker
+            mediaManager={mediaManager}
+            value={selectedImage}
+            onChange={(selectedImage) => this.handleChange(selectedImage)}
+          />
 
-        <input
-          type='hidden'
-          name={name}
-          value={selectedImage ? selectedImage.id : ''}
-        />
+          <input
+            type='hidden'
+            name={name}
+            value={selectedImage ? selectedImage.id : ''}
+          />
+        </div>
       </ThemeProvider>
     )
   }
