@@ -1243,6 +1243,11 @@
   version "0.0.0"
   uid ""
 
+"@raketa-cms/raketa-mir@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@raketa-cms/raketa-mir/-/raketa-mir-1.1.1.tgz#536fe43f590207d78a22b930c674f58937280444"
+  integrity sha512-FGlCz7Eu3EHpSiSEaTBPaLjXTERh+U50vkRObCGzrV3siuIRc6K0hcdnS+UlEauge3LZ/ri35M0wxPRAXC8bHg==
+
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-4.2.0.tgz#dadcb6218503532d6884b210e7f3c502caaa44b1"
@@ -8357,11 +8362,6 @@ raf@^3.4.1:
   integrity sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA==
   dependencies:
     performance-now "^2.1.0"
-
-raketa-ui@^1.1.1-pre:
-  version "1.1.1-pre"
-  resolved "https://registry.yarnpkg.com/raketa-ui/-/raketa-ui-1.1.1-pre.tgz#48ba31a09a3decb22e15938789160943d20fb130"
-  integrity sha512-J8g5rNsrwg2j9qEJTf3kD5LQQrOyjXlACd+ZF9rrWsgDSEJ1aVMtgsRPxhVZxSmjGl32CrmnejRTFTFG9d6g9g==
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
